@@ -1,13 +1,13 @@
 //
-//  CTViewController.h
+//  CTCensorData.m
 //  Configuration Tool
 //
 //  Created by Jon on 7/2/14.
 //  Copyright (c) 2014 Modeo Vehicles LLC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CTSensorData.h"
 
-@interface CTViewController : UIViewController
+@implementation CTSensorData
 
 @end

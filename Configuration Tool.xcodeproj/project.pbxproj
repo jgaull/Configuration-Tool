@@ -14,7 +14,6 @@
 		FCCAA2F31964AD2A006FD7D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA2F21964AD2A006FD7D2 /* main.m */; };
 		FCCAA2F71964AD2A006FD7D2 /* CTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA2F61964AD2A006FD7D2 /* CTAppDelegate.m */; };
 		FCCAA2FA1964AD2A006FD7D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCAA2F81964AD2A006FD7D2 /* Main.storyboard */; };
-		FCCAA2FD1964AD2A006FD7D2 /* CTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA2FC1964AD2A006FD7D2 /* CTViewController.m */; };
 		FCCAA2FF1964AD2A006FD7D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCAA2FE1964AD2A006FD7D2 /* Images.xcassets */; };
 		FCCAA3061964AD2A006FD7D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3051964AD2A006FD7D2 /* XCTest.framework */; };
 		FCCAA3071964AD2A006FD7D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA2E61964AD29006FD7D2 /* Foundation.framework */; };
@@ -32,6 +31,12 @@
 		FCCAA3341964ADF7006FD7D2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3331964ADF7006FD7D2 /* Security.framework */; };
 		FCCAA3361964AE03006FD7D2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3351964AE03006FD7D2 /* StoreKit.framework */; };
 		FCCAA3381964AE0C006FD7D2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3371964AE0C006FD7D2 /* SystemConfiguration.framework */; };
+		FCCAA3441964B928006FD7D2 /* CTConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3431964B928006FD7D2 /* CTConfigurationViewController.m */; };
+		FCCAA3471964BD98006FD7D2 /* CTEditPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3461964BD98006FD7D2 /* CTEditPropertyViewController.m */; };
+		FCCAA34A1964BE4F006FD7D2 /* CTPropertyData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3491964BE4F006FD7D2 /* CTPropertyData.m */; };
+		FCCAA34D1964BEBB006FD7D2 /* CTSensorData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA34C1964BEBB006FD7D2 /* CTSensorData.m */; };
+		FCCAA3501964C400006FD7D2 /* CTConfigurationData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA34F1964C400006FD7D2 /* CTConfigurationData.m */; };
+		FCCAA3531964C889006FD7D2 /* CTEditSensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3521964C889006FD7D2 /* CTEditSensorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +82,6 @@
 		FCCAA2F51964AD2A006FD7D2 /* CTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTAppDelegate.h; sourceTree = "<group>"; };
 		FCCAA2F61964AD2A006FD7D2 /* CTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTAppDelegate.m; sourceTree = "<group>"; };
 		FCCAA2F91964AD2A006FD7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FCCAA2FB1964AD2A006FD7D2 /* CTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTViewController.h; sourceTree = "<group>"; };
-		FCCAA2FC1964AD2A006FD7D2 /* CTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTViewController.m; sourceTree = "<group>"; };
 		FCCAA2FE1964AD2A006FD7D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FCCAA3041964AD2A006FD7D2 /* Configuration ToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Configuration ToolTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCAA3051964AD2A006FD7D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -96,6 +99,18 @@
 		FCCAA3331964ADF7006FD7D2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FCCAA3351964AE03006FD7D2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		FCCAA3371964AE0C006FD7D2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FCCAA3421964B928006FD7D2 /* CTConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTConfigurationViewController.h; sourceTree = "<group>"; };
+		FCCAA3431964B928006FD7D2 /* CTConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTConfigurationViewController.m; sourceTree = "<group>"; };
+		FCCAA3451964BD98006FD7D2 /* CTEditPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTEditPropertyViewController.h; sourceTree = "<group>"; };
+		FCCAA3461964BD98006FD7D2 /* CTEditPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEditPropertyViewController.m; sourceTree = "<group>"; };
+		FCCAA3481964BE4F006FD7D2 /* CTPropertyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPropertyData.h; sourceTree = "<group>"; };
+		FCCAA3491964BE4F006FD7D2 /* CTPropertyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPropertyData.m; sourceTree = "<group>"; };
+		FCCAA34B1964BEBB006FD7D2 /* CTSensorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSensorData.h; sourceTree = "<group>"; };
+		FCCAA34C1964BEBB006FD7D2 /* CTSensorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSensorData.m; sourceTree = "<group>"; };
+		FCCAA34E1964C400006FD7D2 /* CTConfigurationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTConfigurationData.h; sourceTree = "<group>"; };
+		FCCAA34F1964C400006FD7D2 /* CTConfigurationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTConfigurationData.m; sourceTree = "<group>"; };
+		FCCAA3511964C889006FD7D2 /* CTEditSensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTEditSensorViewController.h; sourceTree = "<group>"; };
+		FCCAA3521964C889006FD7D2 /* CTEditSensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEditSensorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,10 +195,20 @@
 				FCCAA2F51964AD2A006FD7D2 /* CTAppDelegate.h */,
 				FCCAA2F61964AD2A006FD7D2 /* CTAppDelegate.m */,
 				FCCAA2F81964AD2A006FD7D2 /* Main.storyboard */,
-				FCCAA2FB1964AD2A006FD7D2 /* CTViewController.h */,
-				FCCAA2FC1964AD2A006FD7D2 /* CTViewController.m */,
 				FCCAA2FE1964AD2A006FD7D2 /* Images.xcassets */,
 				FCCAA2ED1964AD29006FD7D2 /* Supporting Files */,
+				FCCAA3421964B928006FD7D2 /* CTConfigurationViewController.h */,
+				FCCAA3431964B928006FD7D2 /* CTConfigurationViewController.m */,
+				FCCAA3451964BD98006FD7D2 /* CTEditPropertyViewController.h */,
+				FCCAA3461964BD98006FD7D2 /* CTEditPropertyViewController.m */,
+				FCCAA3481964BE4F006FD7D2 /* CTPropertyData.h */,
+				FCCAA3491964BE4F006FD7D2 /* CTPropertyData.m */,
+				FCCAA34B1964BEBB006FD7D2 /* CTSensorData.h */,
+				FCCAA34C1964BEBB006FD7D2 /* CTSensorData.m */,
+				FCCAA34E1964C400006FD7D2 /* CTConfigurationData.h */,
+				FCCAA34F1964C400006FD7D2 /* CTConfigurationData.m */,
+				FCCAA3511964C889006FD7D2 /* CTEditSensorViewController.h */,
+				FCCAA3521964C889006FD7D2 /* CTEditSensorViewController.m */,
 			);
 			path = "Configuration Tool";
 			sourceTree = "<group>";
@@ -348,9 +373,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCAA3441964B928006FD7D2 /* CTConfigurationViewController.m in Sources */,
+				FCCAA3501964C400006FD7D2 /* CTConfigurationData.m in Sources */,
+				FCCAA34A1964BE4F006FD7D2 /* CTPropertyData.m in Sources */,
 				FCCAA2F31964AD2A006FD7D2 /* main.m in Sources */,
 				FCCAA2F71964AD2A006FD7D2 /* CTAppDelegate.m in Sources */,
-				FCCAA2FD1964AD2A006FD7D2 /* CTViewController.m in Sources */,
+				FCCAA3531964C889006FD7D2 /* CTEditSensorViewController.m in Sources */,
+				FCCAA34D1964BEBB006FD7D2 /* CTSensorData.m in Sources */,
+				FCCAA3471964BD98006FD7D2 /* CTEditPropertyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
