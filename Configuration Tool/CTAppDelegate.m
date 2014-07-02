@@ -6,12 +6,20 @@
 //  Copyright (c) 2014 Modeo Vehicles LLC. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+#import <ModeoFramework/ModeoFramework.h>
+
 #import "CTAppDelegate.h"
 
 @implementation CTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [MFBike sharedInstance];
+    
+    [Parse setApplicationId:@"ovUkqNQu9i7SlPyDFXE4h83UX7Ick8vUJmt1WIJn" clientKey:@"GIxKLeW0qAac4TNJLVrUICcd4hbqry03etHMCvHB"];
+    
     // Override point for customization after application launch.
     return YES;
 }

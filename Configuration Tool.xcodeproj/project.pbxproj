@@ -21,6 +21,17 @@
 		FCCAA3081964AD2A006FD7D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA2EA1964AD29006FD7D2 /* UIKit.framework */; };
 		FCCAA3101964AD2A006FD7D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCCAA30E1964AD2A006FD7D2 /* InfoPlist.strings */; };
 		FCCAA3121964AD2A006FD7D2 /* Configuration_ToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3111964AD2A006FD7D2 /* Configuration_ToolTests.m */; };
+		FCCAA31C1964AD5C006FD7D2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA31B1964AD5C006FD7D2 /* Parse.framework */; };
+		FCCAA3261964AD9C006FD7D2 /* libModeoFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3231964AD86006FD7D2 /* libModeoFramework.a */; };
+		FCCAA3281964ADBF006FD7D2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3271964ADBF006FD7D2 /* AudioToolbox.framework */; };
+		FCCAA32A1964ADC6006FD7D2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3291964ADC6006FD7D2 /* CFNetwork.framework */; };
+		FCCAA32C1964ADD5006FD7D2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA32B1964ADD5006FD7D2 /* CoreLocation.framework */; };
+		FCCAA32E1964ADDE006FD7D2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA32D1964ADDE006FD7D2 /* libz.dylib */; };
+		FCCAA3301964ADE5006FD7D2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA32F1964ADE5006FD7D2 /* MobileCoreServices.framework */; };
+		FCCAA3321964ADED006FD7D2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3311964ADED006FD7D2 /* QuartzCore.framework */; };
+		FCCAA3341964ADF7006FD7D2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3331964ADF7006FD7D2 /* Security.framework */; };
+		FCCAA3361964AE03006FD7D2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3351964AE03006FD7D2 /* StoreKit.framework */; };
+		FCCAA3381964AE0C006FD7D2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3371964AE0C006FD7D2 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +41,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = FCCAA2E21964AD29006FD7D2;
 			remoteInfo = "Configuration Tool";
+		};
+		FCCAA3221964AD86006FD7D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCCAA31D1964AD86006FD7D2 /* ModeoFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FCE4AA2418A49643007817C9;
+			remoteInfo = ModeoFramework;
+		};
+		FCCAA3241964AD86006FD7D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCCAA31D1964AD86006FD7D2 /* ModeoFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FCE4AA3418A49643007817C9;
+			remoteInfo = ModeoFrameworkTests;
+		};
+		FCCAA3391964AE18006FD7D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCCAA31D1964AD86006FD7D2 /* ModeoFramework.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FCE4AA2318A49643007817C9;
+			remoteInfo = ModeoFramework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -53,6 +85,17 @@
 		FCCAA30D1964AD2A006FD7D2 /* Configuration ToolTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Configuration ToolTests-Info.plist"; sourceTree = "<group>"; };
 		FCCAA30F1964AD2A006FD7D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FCCAA3111964AD2A006FD7D2 /* Configuration_ToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Configuration_ToolTests.m; sourceTree = "<group>"; };
+		FCCAA31B1964AD5C006FD7D2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		FCCAA31D1964AD86006FD7D2 /* ModeoFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ModeoFramework.xcodeproj; path = ../ModeoFramework/ModeoFramework.xcodeproj; sourceTree = "<group>"; };
+		FCCAA3271964ADBF006FD7D2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FCCAA3291964ADC6006FD7D2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FCCAA32B1964ADD5006FD7D2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FCCAA32D1964ADDE006FD7D2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FCCAA32F1964ADE5006FD7D2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FCCAA3311964ADED006FD7D2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FCCAA3331964ADF7006FD7D2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FCCAA3351964AE03006FD7D2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FCCAA3371964AE0C006FD7D2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +103,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCAA3381964AE0C006FD7D2 /* SystemConfiguration.framework in Frameworks */,
+				FCCAA3361964AE03006FD7D2 /* StoreKit.framework in Frameworks */,
+				FCCAA3341964ADF7006FD7D2 /* Security.framework in Frameworks */,
+				FCCAA3321964ADED006FD7D2 /* QuartzCore.framework in Frameworks */,
+				FCCAA3301964ADE5006FD7D2 /* MobileCoreServices.framework in Frameworks */,
+				FCCAA32E1964ADDE006FD7D2 /* libz.dylib in Frameworks */,
+				FCCAA32C1964ADD5006FD7D2 /* CoreLocation.framework in Frameworks */,
 				FCCAA2E91964AD29006FD7D2 /* CoreGraphics.framework in Frameworks */,
+				FCCAA32A1964ADC6006FD7D2 /* CFNetwork.framework in Frameworks */,
+				FCCAA3281964ADBF006FD7D2 /* AudioToolbox.framework in Frameworks */,
+				FCCAA3261964AD9C006FD7D2 /* libModeoFramework.a in Frameworks */,
 				FCCAA2EB1964AD29006FD7D2 /* UIKit.framework in Frameworks */,
+				FCCAA31C1964AD5C006FD7D2 /* Parse.framework in Frameworks */,
 				FCCAA2E71964AD29006FD7D2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +155,17 @@
 		FCCAA2E51964AD29006FD7D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCCAA3371964AE0C006FD7D2 /* SystemConfiguration.framework */,
+				FCCAA3351964AE03006FD7D2 /* StoreKit.framework */,
+				FCCAA3331964ADF7006FD7D2 /* Security.framework */,
+				FCCAA3311964ADED006FD7D2 /* QuartzCore.framework */,
+				FCCAA32F1964ADE5006FD7D2 /* MobileCoreServices.framework */,
+				FCCAA32D1964ADDE006FD7D2 /* libz.dylib */,
+				FCCAA32B1964ADD5006FD7D2 /* CoreLocation.framework */,
+				FCCAA3291964ADC6006FD7D2 /* CFNetwork.framework */,
+				FCCAA3271964ADBF006FD7D2 /* AudioToolbox.framework */,
+				FCCAA31D1964AD86006FD7D2 /* ModeoFramework.xcodeproj */,
+				FCCAA31B1964AD5C006FD7D2 /* Parse.framework */,
 				FCCAA2E61964AD29006FD7D2 /* Foundation.framework */,
 				FCCAA2E81964AD29006FD7D2 /* CoreGraphics.framework */,
 				FCCAA2EA1964AD29006FD7D2 /* UIKit.framework */,
@@ -152,6 +217,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FCCAA31E1964AD86006FD7D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCCAA3231964AD86006FD7D2 /* libModeoFramework.a */,
+				FCCAA3251964AD86006FD7D2 /* ModeoFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +240,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FCCAA33A1964AE18006FD7D2 /* PBXTargetDependency */,
 			);
 			name = "Configuration Tool";
 			productName = "Configuration Tool";
@@ -216,6 +291,12 @@
 			mainGroup = FCCAA2DA1964AD29006FD7D2;
 			productRefGroup = FCCAA2E41964AD29006FD7D2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FCCAA31E1964AD86006FD7D2 /* Products */;
+					ProjectRef = FCCAA31D1964AD86006FD7D2 /* ModeoFramework.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FCCAA2E21964AD29006FD7D2 /* Configuration Tool */,
@@ -223,6 +304,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FCCAA3231964AD86006FD7D2 /* libModeoFramework.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libModeoFramework.a;
+			remoteRef = FCCAA3221964AD86006FD7D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FCCAA3251964AD86006FD7D2 /* ModeoFrameworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ModeoFrameworkTests.xctest;
+			remoteRef = FCCAA3241964AD86006FD7D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FCCAA2E11964AD29006FD7D2 /* Resources */ = {
@@ -271,6 +369,11 @@
 			isa = PBXTargetDependency;
 			target = FCCAA2E21964AD29006FD7D2 /* Configuration Tool */;
 			targetProxy = FCCAA3091964AD2A006FD7D2 /* PBXContainerItemProxy */;
+		};
+		FCCAA33A1964AE18006FD7D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ModeoFramework;
+			targetProxy = FCCAA3391964AE18006FD7D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -379,6 +482,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Configuration Tool/Configuration Tool-Prefix.pch";
 				INFOPLIST_FILE = "Configuration Tool/Configuration Tool-Info.plist";
@@ -392,6 +499,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Configuration Tool/Configuration Tool-Prefix.pch";
 				INFOPLIST_FILE = "Configuration Tool/Configuration Tool-Info.plist";
