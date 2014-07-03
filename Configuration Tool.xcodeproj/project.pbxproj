@@ -600,6 +600,7 @@
 				FCCAA3171964AD2A006FD7D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCCAA3181964AD2A006FD7D2 /* Build configuration list for PBXNativeTarget "Configuration ToolTests" */ = {
 			isa = XCConfigurationList;
@@ -608,6 +609,7 @@
 				FCCAA31A1964AD2A006FD7D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
