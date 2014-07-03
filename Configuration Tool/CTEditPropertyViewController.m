@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *identifierField;
 @property (weak, nonatomic) IBOutlet UITextField *sizeField;
 @property (weak, nonatomic) IBOutlet UISwitch *callbackOnChangeSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *eepromSaveSwitch;
 
 @property (weak, nonatomic) UITextField *editingTextField;
 
@@ -39,6 +40,7 @@
     self.identifierField.text = [NSString stringWithFormat:@"%ld", (long)self.propertyData.identifier];
     self.sizeField.text = [NSString stringWithFormat:@"%ld", (long)self.propertyData.size];
     self.callbackOnChangeSwitch.on = self.propertyData.callbackOnChange;
+    self.eepromSaveSwitch.on = self.propertyData.eepromSave;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -87,6 +89,11 @@
 - (IBAction)callbackOnChangeSwitchDidChange:(UISwitch *)sender {
     self.propertyData.callbackOnChange = self.callbackOnChangeSwitch.on;
 }
+
+- (IBAction)eepromSaveSwitchDidChange:(UISwitch *)sender {
+    self.propertyData.eepromSave = sender.on;
+}
+
 
 /*
 #pragma mark - Navigation

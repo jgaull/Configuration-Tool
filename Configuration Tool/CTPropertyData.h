@@ -15,5 +15,6 @@
 @property (nonatomic) NSInteger identifier;
 @property (nonatomic) NSInteger size;
 @property (nonatomic) BOOL callbackOnChange;
+@property (nonatomic) BOOL eepromSave;
 
 @end

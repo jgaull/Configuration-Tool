@@ -12,11 +12,14 @@
 #import "CTEditSensorViewController.h"
 #import "CTSensorData.h"
 
+#import <ModeoFramework/ModeoFramework.h>
+
 @interface CTConfigurationViewController ()
 
 @property (strong, nonatomic) NSMutableArray *properties;
 @property (strong, nonatomic) NSMutableArray *sensors;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *connectButton;
 
 @end
 
@@ -35,6 +38,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self performSelector:@selector(connectToBike) withObject:nil afterDelay:1];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bikeDidDisconnect:) name:kNotificationBikeDidDisconnect object:nil];
+}
+
+- (void)bikeDidDisconnect:(NSNotification *)notification {
+    [self connectToBike];
+}
+
+- (void)connectToBike {
+    [[MFBike sharedInstance] connectWithTimeout:999999 andCallback:^(NSError *error) {
+        if (error) {
+            NSLog(@"Error connecting: %@", error.localizedDescription);
+        }
+        else {
+            NSLog(@"Connected!");
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -99,6 +120,31 @@
 - (IBAction)userDidTapPlus:(UIBarButtonItem *)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create New" message:@"What would you like to create?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Property", @"Sensor", nil];
     [alert show];
+}
+
+- (IBAction)userDidTapUpload:(UIBarButtonItem *)sender {
+    sender.enabled = NO;
+    
+    NSInteger length = 255;
+    Byte datems[length];
+    for (NSInteger i = 0; i < length; i++) {
+        datems[i] = i;
+    }
+    NSData *data = [NSData dataWithBytes:datems length:length];
+    
+    NSDate *timestamp = [NSDate date];
+    [[MFBike sharedInstance] uploadConfigurationData:data withCallback:^(NSError *error) {
+        
+        if (!error) {
+            NSLog(@"w00t!");
+            NSLog(@"Transfer Time: %f", [timestamp timeIntervalSinceNow]);
+        }
+        else {
+            NSLog(@"failure: %@", error.localizedDescription);
+        }
+        
+        sender.enabled = YES;
+    }];
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {

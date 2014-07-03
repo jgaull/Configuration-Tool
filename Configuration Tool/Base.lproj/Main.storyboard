@@ -87,7 +87,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kbJ-sg-CxC"/>
-                                    <barButtonItem systemItem="action" id="nDw-o2-3J4"/>
+                                    <barButtonItem systemItem="action" id="nDw-o2-3J4">
+                                        <connections>
+                                            <action selector="userDidTapUpload:" destination="5K1-Hj-eqw" id="KgG-Ij-ZnC"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -101,6 +105,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="connectButton" destination="nDw-o2-3J4" id="muj-Pb-38w"/>
                         <outlet property="tableView" destination="9Z9-sD-pvz" id="ap6-x3-S9D"/>
                     </connections>
                 </viewController>
@@ -226,25 +231,40 @@
                                 </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6vj-u1-i1x">
-                                <rect key="frame" x="20" y="193" width="51" height="31"/>
+                                <rect key="frame" x="20" y="236" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="callbackOnChangeSwitchDidChange:" destination="joJ-wh-fV7" eventType="valueChanged" id="4KN-cp-AEr"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Callback on change" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xQ-yy-yPm">
-                                <rect key="frame" x="77" y="198" width="153" height="21"/>
+                                <rect key="frame" x="77" y="241" width="153" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EEPROM Save" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-5R-wUy">
+                                <rect key="frame" x="77" y="202" width="115" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bxo-uc-LhP">
+                                <rect key="frame" x="20" y="197" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="eepromSaveSwitchDidChange:" destination="joJ-wh-fV7" eventType="valueChanged" id="cy3-rE-4o6"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="BnC-gn-xc5"/>
                     <connections>
                         <outlet property="callbackOnChangeSwitch" destination="6vj-u1-i1x" id="fkO-wW-WLU"/>
+                        <outlet property="eepromSaveSwitch" destination="Bxo-uc-LhP" id="Nx6-id-gNK"/>
                         <outlet property="identifierField" destination="7S5-5z-82m" id="fYj-FT-m1D"/>
                         <outlet property="nameField" destination="b9U-CC-I5Q" id="Yyh-lQ-7TO"/>
                         <outlet property="sizeField" destination="RRi-32-ryV" id="Kma-kw-tlT"/>
