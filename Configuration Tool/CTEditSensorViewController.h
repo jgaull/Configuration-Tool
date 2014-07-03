@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "CTSensorData.h"
+#import <ModeoFramework/MFSecretsDontLookHere.h>
 
 @interface CTEditSensorViewController : UIViewController <UITextFieldDelegate>
 
@@ -16,6 +15,6 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField;
 - (void)textFieldDidBeginEditing:(UITextField *)textField;
 
-@property (nonatomic, strong) CTSensorData *sensorData;
+@property (nonatomic, strong) MFSensorConfigurationData *sensorData;
 
 @end

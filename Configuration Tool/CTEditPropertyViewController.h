@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-#import "CTPropertyData.h"
+#import <ModeoFramework/MFSecretsDontLookHere.h>
 
 @interface CTEditPropertyViewController : UIViewController <UITextFieldDelegate>
 
@@ -16,6 +15,6 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField;
 - (void)textFieldDidBeginEditing:(UITextField *)textField;
 
-@property (strong, nonatomic) CTPropertyData *propertyData;
+@property (strong, nonatomic) MFPropertyConfigurationData *propertyData;
 
 @end

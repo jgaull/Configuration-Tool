@@ -33,9 +33,6 @@
 		FCCAA3381964AE0C006FD7D2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA3371964AE0C006FD7D2 /* SystemConfiguration.framework */; };
 		FCCAA3441964B928006FD7D2 /* CTConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3431964B928006FD7D2 /* CTConfigurationViewController.m */; };
 		FCCAA3471964BD98006FD7D2 /* CTEditPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3461964BD98006FD7D2 /* CTEditPropertyViewController.m */; };
-		FCCAA34A1964BE4F006FD7D2 /* CTPropertyData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3491964BE4F006FD7D2 /* CTPropertyData.m */; };
-		FCCAA34D1964BEBB006FD7D2 /* CTSensorData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA34C1964BEBB006FD7D2 /* CTSensorData.m */; };
-		FCCAA3501964C400006FD7D2 /* CTConfigurationData.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA34F1964C400006FD7D2 /* CTConfigurationData.m */; };
 		FCCAA3531964C889006FD7D2 /* CTEditSensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCAA3521964C889006FD7D2 /* CTEditSensorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -103,12 +100,6 @@
 		FCCAA3431964B928006FD7D2 /* CTConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTConfigurationViewController.m; sourceTree = "<group>"; };
 		FCCAA3451964BD98006FD7D2 /* CTEditPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTEditPropertyViewController.h; sourceTree = "<group>"; };
 		FCCAA3461964BD98006FD7D2 /* CTEditPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEditPropertyViewController.m; sourceTree = "<group>"; };
-		FCCAA3481964BE4F006FD7D2 /* CTPropertyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPropertyData.h; sourceTree = "<group>"; };
-		FCCAA3491964BE4F006FD7D2 /* CTPropertyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPropertyData.m; sourceTree = "<group>"; };
-		FCCAA34B1964BEBB006FD7D2 /* CTSensorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSensorData.h; sourceTree = "<group>"; };
-		FCCAA34C1964BEBB006FD7D2 /* CTSensorData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSensorData.m; sourceTree = "<group>"; };
-		FCCAA34E1964C400006FD7D2 /* CTConfigurationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTConfigurationData.h; sourceTree = "<group>"; };
-		FCCAA34F1964C400006FD7D2 /* CTConfigurationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTConfigurationData.m; sourceTree = "<group>"; };
 		FCCAA3511964C889006FD7D2 /* CTEditSensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTEditSensorViewController.h; sourceTree = "<group>"; };
 		FCCAA3521964C889006FD7D2 /* CTEditSensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEditSensorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,12 +192,6 @@
 				FCCAA3431964B928006FD7D2 /* CTConfigurationViewController.m */,
 				FCCAA3451964BD98006FD7D2 /* CTEditPropertyViewController.h */,
 				FCCAA3461964BD98006FD7D2 /* CTEditPropertyViewController.m */,
-				FCCAA3481964BE4F006FD7D2 /* CTPropertyData.h */,
-				FCCAA3491964BE4F006FD7D2 /* CTPropertyData.m */,
-				FCCAA34B1964BEBB006FD7D2 /* CTSensorData.h */,
-				FCCAA34C1964BEBB006FD7D2 /* CTSensorData.m */,
-				FCCAA34E1964C400006FD7D2 /* CTConfigurationData.h */,
-				FCCAA34F1964C400006FD7D2 /* CTConfigurationData.m */,
 				FCCAA3511964C889006FD7D2 /* CTEditSensorViewController.h */,
 				FCCAA3521964C889006FD7D2 /* CTEditSensorViewController.m */,
 			);
@@ -374,12 +359,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCCAA3441964B928006FD7D2 /* CTConfigurationViewController.m in Sources */,
-				FCCAA3501964C400006FD7D2 /* CTConfigurationData.m in Sources */,
-				FCCAA34A1964BE4F006FD7D2 /* CTPropertyData.m in Sources */,
 				FCCAA2F31964AD2A006FD7D2 /* main.m in Sources */,
 				FCCAA2F71964AD2A006FD7D2 /* CTAppDelegate.m in Sources */,
 				FCCAA3531964C889006FD7D2 /* CTEditSensorViewController.m in Sources */,
-				FCCAA34D1964BEBB006FD7D2 /* CTSensorData.m in Sources */,
 				FCCAA3471964BD98006FD7D2 /* CTEditPropertyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

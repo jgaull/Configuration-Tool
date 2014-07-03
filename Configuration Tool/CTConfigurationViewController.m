@@ -8,11 +8,10 @@
 
 #import "CTConfigurationViewController.h"
 #import "CTEditPropertyViewController.h"
-#import "CTPropertyData.h"
 #import "CTEditSensorViewController.h"
-#import "CTSensorData.h"
 
 #import <ModeoFramework/ModeoFramework.h>
+#import <ModeoFramework/MFSecretsDontLookHere.h>
 
 @interface CTConfigurationViewController ()
 
@@ -94,7 +93,7 @@
     }
     
     NSArray *arrayForSection = indexPath.section == 0 ? self.properties : self.sensors;
-    CTConfigurationData *configurationData = [arrayForSection objectAtIndex:indexPath.row];
+    MFConfigurationData *configurationData = [arrayForSection objectAtIndex:indexPath.row];
     cell.textLabel.text = configurationData.name;
     return cell;
 }
@@ -124,7 +123,7 @@
 
 - (IBAction)userDidTapUpload:(UIBarButtonItem *)sender {
     sender.enabled = NO;
-    
+    /*
     NSInteger length = 255;
     Byte datems[length];
     for (NSInteger i = 0; i < length; i++) {
@@ -144,18 +143,32 @@
         }
         
         sender.enabled = YES;
+    }];*/
+    
+    NSDate *timestamp = [NSDate date];
+    
+    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.properties sensors:self.sensors versionNumber:69];
+    [[MFBike sharedInstance] uploadConfiguration:bikeConfig withCallback:^(NSError *error) {
+        if (!error) {
+            NSLog(@"Transfer Time: %f", [timestamp timeIntervalSinceNow]);
+        }
+        else {
+            NSLog(@"failure: %@", error.localizedDescription);
+        }
+        
+        sender.enabled = YES;
     }];
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 1) {
-        CTPropertyData *propertyData = [CTPropertyData new];
+        MFPropertyConfigurationData *propertyData = [MFPropertyConfigurationData new];
         propertyData.name = [NSString stringWithFormat:@"New Property %lu", self.properties.count + 1];
         [self.properties addObject:propertyData];
     }
     else if (buttonIndex == 2) {
-        CTSensorData *sensorData = [CTSensorData new];
+        MFSensorConfigurationData *sensorData = [MFSensorConfigurationData new];
         sensorData.name = [NSString stringWithFormat:@"New Sensor %lu", self.sensors.count + 1];
         [self.sensors addObject:sensorData];
     }
