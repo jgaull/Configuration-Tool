@@ -95,6 +95,7 @@
     NSArray *arrayForSection = indexPath.section == 0 ? self.properties : self.sensors;
     MFConfigurationData *configurationData = [arrayForSection objectAtIndex:indexPath.row];
     cell.textLabel.text = configurationData.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)configurationData.identifier];
     return cell;
 }
 
