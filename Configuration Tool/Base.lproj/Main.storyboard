@@ -112,6 +112,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Configuration" id="RdO-gf-GbR">
+                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="vbb-SM-6pb">
+                            <connections>
+                                <action selector="userDidTapSave:" destination="5K1-Hj-eqw" id="jjw-nO-ZVN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FVu-cB-o7E">
                             <connections>
                                 <action selector="userDidTapPlus:" destination="5K1-Hj-eqw" id="eFJ-Fz-Lv3"/>
@@ -120,6 +125,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="connectButton" destination="nDw-o2-3J4" id="muj-Pb-38w"/>
+                        <outlet property="saveButton" destination="vbb-SM-6pb" id="8rU-1M-Zmu"/>
                         <outlet property="tableView" destination="9Z9-sD-pvz" id="ap6-x3-S9D"/>
                     </connections>
                 </viewController>

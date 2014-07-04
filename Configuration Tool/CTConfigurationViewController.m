@@ -12,13 +12,16 @@
 
 #import <ModeoFramework/ModeoFramework.h>
 #import <ModeoFramework/MFSecretsDontLookHere.h>
+#import <Parse/Parse.h>
 
 @interface CTConfigurationViewController ()
 
 @property (strong, nonatomic) NSMutableArray *properties;
 @property (strong, nonatomic) NSMutableArray *sensors;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *connectButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 @end
 
@@ -158,6 +161,38 @@
         }
         
         sender.enabled = YES;
+    }];
+}
+
+- (IBAction)userDidTapSave:(UIBarButtonItem *)sender {
+    
+    NSMutableArray *properties = [NSMutableArray new];
+    for (MFPropertyConfigurationData *property in self.properties) {
+        [properties addObject:property.toDictionary];
+    }
+    
+    NSMutableArray *sensors = [NSMutableArray new];
+    for (MFPropertyConfigurationData *sensor in self.sensors) {
+        [sensors addObject:sensor.toDictionary];
+    }
+    
+    
+    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.properties sensors:self.sensors versionNumber:69];
+    
+    PFObject *parseObject = [[PFObject alloc] initWithClassName:@"Configuration"];
+    [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.versionNumber] forKey:@"versionNumber"];
+    [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.numProperties] forKey:@"numProperties"];
+    [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.numSensors] forKey:@"numSensors"];
+    [parseObject setObject:properties forKey:@"properties"];
+    [parseObject setObject:sensors forKey:@"sensors"];
+    
+    [parseObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!succeeded) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        else {
+            NSLog(@"Saved!");
+        }
     }];
 }
 
