@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *connectButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
+@property (strong, nonatomic) PFObject *configurationParseObject;
+@property (strong, nonatomic) MFBikeConfiguration *bikeConfiguration;
+
 @end
 
 @implementation CTConfigurationViewController
@@ -43,6 +46,34 @@
     [self performSelector:@selector(connectToBike) withObject:nil afterDelay:1];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bikeDidDisconnect:) name:kNotificationBikeDidDisconnect object:nil];
+    
+    self.configurationParseObject = [[PFObject alloc] initWithClassName:@"Configuration"];
+    self.configurationParseObject.objectId = @"fCzO0lLqcg";
+    [self.configurationParseObject refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (error) {
+            NSLog(@"Error loading: %@", error.localizedDescription);
+        }
+        
+        else {
+            NSMutableArray *sensors = [NSMutableArray new];
+            NSMutableArray *sensorsJson = [object objectForKey:@"sensors"];
+            for (NSDictionary *dictionary in sensorsJson) {
+                MFSensorConfigurationData *sensorConfig = [[MFSensorConfigurationData alloc] initWithDictionary:dictionary];
+                [sensors addObject:sensorConfig];
+            }
+            
+            NSMutableArray *properties = [NSMutableArray new];
+            NSMutableArray *propertiesJson = [object objectForKey:@"properties"];
+            for (NSDictionary *dictionary in propertiesJson) {
+                MFSensorConfigurationData *propertyConfig = [[MFSensorConfigurationData alloc] initWithDictionary:dictionary];
+                [properties addObject:propertyConfig];
+            }
+            
+            self.sensors = sensors;
+            self.properties = properties;
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 - (void)bikeDidDisconnect:(NSNotification *)notification {
