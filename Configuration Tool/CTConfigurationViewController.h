@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ModeoFramework/ModeoFramework.h>
+#import <ModeoFramework/MFSecretsDontLookHere.h>
+#import <Parse/Parse.h>
 
 @interface CTConfigurationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
+
+@property (strong, nonatomic) MFBikeConfiguration *configuration;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;

@@ -10,21 +10,11 @@
 #import "CTEditPropertyViewController.h"
 #import "CTEditSensorViewController.h"
 
-#import <ModeoFramework/ModeoFramework.h>
-#import <ModeoFramework/MFSecretsDontLookHere.h>
-#import <Parse/Parse.h>
-
 @interface CTConfigurationViewController ()
-
-@property (strong, nonatomic) NSMutableArray *properties;
-@property (strong, nonatomic) NSMutableArray *sensors;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *connectButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-
-@property (strong, nonatomic) PFObject *configurationParseObject;
-@property (strong, nonatomic) MFBikeConfiguration *bikeConfiguration;
 
 @end
 
@@ -46,34 +36,6 @@
     [self performSelector:@selector(connectToBike) withObject:nil afterDelay:1];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bikeDidDisconnect:) name:kNotificationBikeDidDisconnect object:nil];
-    
-    self.configurationParseObject = [[PFObject alloc] initWithClassName:@"Configuration"];
-    self.configurationParseObject.objectId = @"fCzO0lLqcg";
-    [self.configurationParseObject refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        if (error) {
-            NSLog(@"Error loading: %@", error.localizedDescription);
-        }
-        
-        else {
-            NSMutableArray *sensors = [NSMutableArray new];
-            NSMutableArray *sensorsJson = [object objectForKey:@"sensors"];
-            for (NSDictionary *dictionary in sensorsJson) {
-                MFSensorConfigurationData *sensorConfig = [[MFSensorConfigurationData alloc] initWithDictionary:dictionary];
-                [sensors addObject:sensorConfig];
-            }
-            
-            NSMutableArray *properties = [NSMutableArray new];
-            NSMutableArray *propertiesJson = [object objectForKey:@"properties"];
-            for (NSDictionary *dictionary in propertiesJson) {
-                MFSensorConfigurationData *propertyConfig = [[MFSensorConfigurationData alloc] initWithDictionary:dictionary];
-                [properties addObject:propertyConfig];
-            }
-            
-            self.sensors = sensors;
-            self.properties = properties;
-            [self.tableView reloadData];
-        }
-    }];
 }
 
 - (void)bikeDidDisconnect:(NSNotification *)notification {
@@ -115,7 +77,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? self.properties.count : self.sensors.count;
+    return [self configurationArrayForIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -126,11 +88,15 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    NSArray *arrayForSection = indexPath.section == 0 ? self.properties : self.sensors;
+    NSArray *arrayForSection = [self configurationArrayForIndexPath:indexPath];
     MFConfigurationData *configurationData = [arrayForSection objectAtIndex:indexPath.row];
     cell.textLabel.text = configurationData.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)configurationData.identifier];
     return cell;
+}
+
+- (NSArray *)configurationArrayForIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == 0 ? self.configuration.properties : self.configuration.sensors;
 }
 
 #pragma mark - Navigation
@@ -143,11 +109,11 @@
     NSInteger row = self.tableView.indexPathForSelectedRow.row;
     if ([segue.destinationViewController isKindOfClass:[CTEditPropertyViewController class]]) {
         CTEditPropertyViewController *viewController = (CTEditPropertyViewController *)segue.destinationViewController;
-        viewController.propertyData = [self.properties objectAtIndex:row];
+        viewController.propertyData = [self.configuration.properties objectAtIndex:row];
     }
     else if ([segue.destinationViewController isKindOfClass:[CTEditSensorViewController class]]) {
         CTEditSensorViewController *viewController = (CTEditSensorViewController *)segue.destinationViewController;
-        viewController.sensorData = [self.sensors objectAtIndex:row];
+        viewController.sensorData = [self.configuration.sensors objectAtIndex:row];
     }
 }
 
@@ -158,31 +124,10 @@
 
 - (IBAction)userDidTapUpload:(UIBarButtonItem *)sender {
     sender.enabled = NO;
-    /*
-    NSInteger length = 255;
-    Byte datems[length];
-    for (NSInteger i = 0; i < length; i++) {
-        datems[i] = i;
-    }
-    NSData *data = [NSData dataWithBytes:datems length:length];
-    
-    NSDate *timestamp = [NSDate date];
-    [[MFBike sharedInstance] uploadConfigurationData:data withCallback:^(NSError *error) {
-        
-        if (!error) {
-            NSLog(@"w00t!");
-            NSLog(@"Transfer Time: %f", [timestamp timeIntervalSinceNow]);
-        }
-        else {
-            NSLog(@"failure: %@", error.localizedDescription);
-        }
-        
-        sender.enabled = YES;
-    }];*/
     
     NSDate *timestamp = [NSDate date];
     
-    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.properties sensors:self.sensors versionNumber:69];
+    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.configuration.properties sensors:self.configuration.sensors versionNumber:@"Snoop Dogg"];
     [[MFBike sharedInstance] uploadConfiguration:bikeConfig withCallback:^(NSError *error) {
         if (!error) {
             NSLog(@"Transfer Time: %f", [timestamp timeIntervalSinceNow]);
@@ -198,20 +143,20 @@
 - (IBAction)userDidTapSave:(UIBarButtonItem *)sender {
     
     NSMutableArray *properties = [NSMutableArray new];
-    for (MFPropertyConfigurationData *property in self.properties) {
+    for (MFPropertyConfigurationData *property in self.configuration.properties) {
         [properties addObject:property.toDictionary];
     }
     
     NSMutableArray *sensors = [NSMutableArray new];
-    for (MFPropertyConfigurationData *sensor in self.sensors) {
+    for (MFPropertyConfigurationData *sensor in self.configuration.sensors) {
         [sensors addObject:sensor.toDictionary];
     }
     
     
-    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.properties sensors:self.sensors versionNumber:69];
+    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.configuration.properties sensors:self.configuration.sensors versionNumber:@"Snoop"];
     
     PFObject *parseObject = [[PFObject alloc] initWithClassName:@"Configuration"];
-    [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.versionNumber] forKey:@"versionNumber"];
+    [parseObject setObject:bikeConfig.versionNumber forKey:@"versionNumber"];
     [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.numProperties] forKey:@"numProperties"];
     [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.numSensors] forKey:@"numSensors"];
     [parseObject setObject:properties forKey:@"properties"];
@@ -229,32 +174,23 @@
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
     
+    NSMutableArray *properties = [NSMutableArray arrayWithArray:self.configuration.properties];
+    NSMutableArray *sensors = [NSMutableArray arrayWithArray:self.configuration.sensors];
+    
     if (buttonIndex == 1) {
         MFPropertyConfigurationData *propertyData = [MFPropertyConfigurationData new];
-        propertyData.name = [NSString stringWithFormat:@"New Property %lu", self.properties.count + 1];
-        [self.properties addObject:propertyData];
+        propertyData.name = [NSString stringWithFormat:@"New Property %lu", properties.count + 1];
+        [properties addObject:propertyData];
     }
     else if (buttonIndex == 2) {
         MFSensorConfigurationData *sensorData = [MFSensorConfigurationData new];
-        sensorData.name = [NSString stringWithFormat:@"New Sensor %lu", self.sensors.count + 1];
-        [self.sensors addObject:sensorData];
+        sensorData.name = [NSString stringWithFormat:@"New Sensor %lu", sensors.count + 1];
+        [sensors addObject:sensorData];
     }
     
+    self.configuration = [[MFBikeConfiguration alloc] initWithProperties:properties sensors:sensors versionNumber:self.configuration.versionNumber];
+    
     [self.tableView reloadData];
-}
-
-- (NSMutableArray *)properties {
-    if (!_properties) {
-        _properties = [NSMutableArray new];
-    }
-    return _properties;
-}
-
-- (NSMutableArray *)sensors {
-    if (!_sensors) {
-        _sensors = [NSMutableArray new];
-    }
-    return _sensors;
 }
 
 @end

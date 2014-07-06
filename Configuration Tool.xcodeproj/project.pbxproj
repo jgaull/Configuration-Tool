@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC18FCEC1968BA2800C53F04 /* CTConfigurationsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC18FCEB1968BA2800C53F04 /* CTConfigurationsListViewController.m */; };
+		FC18FCEF1968C28E00C53F04 /* MFBikeConfiguration+CTBikeConfigurationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FC18FCEE1968C28E00C53F04 /* MFBikeConfiguration+CTBikeConfigurationUtils.m */; };
 		FCCAA2E71964AD29006FD7D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA2E61964AD29006FD7D2 /* Foundation.framework */; };
 		FCCAA2E91964AD29006FD7D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA2E81964AD29006FD7D2 /* CoreGraphics.framework */; };
 		FCCAA2EB1964AD29006FD7D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCAA2EA1964AD29006FD7D2 /* UIKit.framework */; };
@@ -68,6 +70,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC18FCEA1968BA2800C53F04 /* CTConfigurationsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTConfigurationsListViewController.h; sourceTree = "<group>"; };
+		FC18FCEB1968BA2800C53F04 /* CTConfigurationsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTConfigurationsListViewController.m; sourceTree = "<group>"; };
+		FC18FCED1968C28E00C53F04 /* MFBikeConfiguration+CTBikeConfigurationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFBikeConfiguration+CTBikeConfigurationUtils.h"; sourceTree = "<group>"; };
+		FC18FCEE1968C28E00C53F04 /* MFBikeConfiguration+CTBikeConfigurationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MFBikeConfiguration+CTBikeConfigurationUtils.m"; sourceTree = "<group>"; };
 		FCCAA2E31964AD29006FD7D2 /* Configuration Tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Configuration Tool.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCCAA2E61964AD29006FD7D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCCAA2E81964AD29006FD7D2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -161,6 +167,7 @@
 		FCCAA2E51964AD29006FD7D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCCAA31D1964AD86006FD7D2 /* ModeoFramework.xcodeproj */,
 				FCCAA3371964AE0C006FD7D2 /* SystemConfiguration.framework */,
 				FCCAA3351964AE03006FD7D2 /* StoreKit.framework */,
 				FCCAA3331964ADF7006FD7D2 /* Security.framework */,
@@ -170,7 +177,6 @@
 				FCCAA32B1964ADD5006FD7D2 /* CoreLocation.framework */,
 				FCCAA3291964ADC6006FD7D2 /* CFNetwork.framework */,
 				FCCAA3271964ADBF006FD7D2 /* AudioToolbox.framework */,
-				FCCAA31D1964AD86006FD7D2 /* ModeoFramework.xcodeproj */,
 				FCCAA31B1964AD5C006FD7D2 /* Parse.framework */,
 				FCCAA2E61964AD29006FD7D2 /* Foundation.framework */,
 				FCCAA2E81964AD29006FD7D2 /* CoreGraphics.framework */,
@@ -194,6 +200,10 @@
 				FCCAA3461964BD98006FD7D2 /* CTEditPropertyViewController.m */,
 				FCCAA3511964C889006FD7D2 /* CTEditSensorViewController.h */,
 				FCCAA3521964C889006FD7D2 /* CTEditSensorViewController.m */,
+				FC18FCEA1968BA2800C53F04 /* CTConfigurationsListViewController.h */,
+				FC18FCEB1968BA2800C53F04 /* CTConfigurationsListViewController.m */,
+				FC18FCED1968C28E00C53F04 /* MFBikeConfiguration+CTBikeConfigurationUtils.h */,
+				FC18FCEE1968C28E00C53F04 /* MFBikeConfiguration+CTBikeConfigurationUtils.m */,
 			);
 			path = "Configuration Tool";
 			sourceTree = "<group>";
@@ -360,8 +370,10 @@
 			files = (
 				FCCAA3441964B928006FD7D2 /* CTConfigurationViewController.m in Sources */,
 				FCCAA2F31964AD2A006FD7D2 /* main.m in Sources */,
+				FC18FCEC1968BA2800C53F04 /* CTConfigurationsListViewController.m in Sources */,
 				FCCAA2F71964AD2A006FD7D2 /* CTAppDelegate.m in Sources */,
 				FCCAA3531964C889006FD7D2 /* CTEditSensorViewController.m in Sources */,
+				FC18FCEF1968C28E00C53F04 /* MFBikeConfiguration+CTBikeConfigurationUtils.m in Sources */,
 				FCCAA3471964BD98006FD7D2 /* CTEditPropertyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
