@@ -109,7 +109,7 @@
     NSInteger row = self.tableView.indexPathForSelectedRow.row;
     if ([segue.destinationViewController isKindOfClass:[CTEditPropertyViewController class]]) {
         CTEditPropertyViewController *viewController = (CTEditPropertyViewController *)segue.destinationViewController;
-        viewController.propertyData = [self.configuration.properties objectAtIndex:row];
+        viewController.propertyConfiguration = [self.configuration.properties objectAtIndex:row];
     }
     else if ([segue.destinationViewController isKindOfClass:[CTEditSensorViewController class]]) {
         CTEditSensorViewController *viewController = (CTEditSensorViewController *)segue.destinationViewController;
@@ -156,7 +156,7 @@
     MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.configuration.properties sensors:self.configuration.sensors versionNumber:@"Snoop"];
     
     PFObject *parseObject = [[PFObject alloc] initWithClassName:@"Configuration"];
-    [parseObject setObject:bikeConfig.versionNumber forKey:@"versionNumber"];
+    [parseObject setObject:bikeConfig.versionName forKey:@"versionNumber"];
     [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.numProperties] forKey:@"numProperties"];
     [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.numSensors] forKey:@"numSensors"];
     [parseObject setObject:properties forKey:@"properties"];
@@ -188,7 +188,7 @@
         [sensors addObject:sensorData];
     }
     
-    self.configuration = [[MFBikeConfiguration alloc] initWithProperties:properties sensors:sensors versionNumber:self.configuration.versionNumber];
+    self.configuration = [[MFBikeConfiguration alloc] initWithProperties:properties sensors:sensors versionNumber:self.configuration.versionName];
     
     [self.tableView reloadData];
 }

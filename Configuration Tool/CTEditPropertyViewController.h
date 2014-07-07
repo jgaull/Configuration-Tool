@@ -15,6 +15,6 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField;
 - (void)textFieldDidBeginEditing:(UITextField *)textField;
 
-@property (strong, nonatomic) MFPropertyConfigurationData *propertyData;
+@property (strong, nonatomic) MFPropertyConfigurationData *propertyConfiguration;
 
 @end

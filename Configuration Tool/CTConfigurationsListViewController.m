@@ -32,6 +32,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[MFBike sharedInstance] checkForUpdatesWithCallback:^(NSError *error) {
+        if (!error) {
+            NSLog(@"Yay!");
+        }
+        else {
+            NSLog(@"Flailure");
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
