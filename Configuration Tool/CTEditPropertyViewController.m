@@ -144,7 +144,7 @@
             for (NSInteger i = 0; i < byteStrings.count; i++) {
                 NSInteger value = [[byteStrings objectAtIndex:i] integerValue];
                 
-                if (value < 255) {
+                if (value < 256) {
                     bytes[i] = (Byte)value;
                 }
             }
