@@ -334,7 +334,6 @@
                                 </segments>
                                 <connections>
                                     <action selector="dataTypeSegmentedControldidChange:" destination="joJ-wh-fV7" eventType="valueChanged" id="G1r-US-lhe"/>
-                                    <action selector="permissionsSegmentedControlDidChange:" destination="joJ-wh-fV7" eventType="valueChanged" id="dQu-7s-43W"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EJB-yM-O1t">
