@@ -90,7 +90,7 @@
         defaultValueString = byteArrayString;
     }
     else if (self.propertyConfiguration.dataType == kPropertyDataTypeString) {
-        defaultValueString = self.propertyConfiguration.defaultValue.utf8StringValue;
+        defaultValueString = self.propertyConfiguration.defaultValue.stringValue;
     }
     
     self.defaultValueTextField.text = defaultValueString;
@@ -134,7 +134,7 @@
             defaultValue = [MFPropertyData propertyDataWithUnsignedShort:(unsigned short)textField.text.integerValue];
         }
         else if (self.propertyConfiguration.dataType == kPropertyDataTypeString) {
-            defaultValue = [MFPropertyData propertyDataWithUTF8String:textField.text];
+            defaultValue = [MFPropertyData propertyWithString:textField.text];
         }
         else {
             NSArray *byteStrings = [textField.text componentsSeparatedByString:@","];
@@ -192,7 +192,7 @@
         newPropertyData = [[MFPropertyData alloc] init];
     }
     else if (dataType == kPropertyDataTypeString) {
-        newPropertyData = [MFPropertyData propertyDataWithUTF8String:@""];
+        newPropertyData = [MFPropertyData propertyWithString:@""];
     }
     
     self.propertyConfiguration.defaultValue = newPropertyData;
