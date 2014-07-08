@@ -172,11 +172,17 @@
 }
 
 - (IBAction)permissionsSegmentedControlDidChange:(UISegmentedControl *)sender {
+    
+    [self.editingTextField resignFirstResponder];
+    
     self.propertyConfiguration.permissions = (MFPropertyPermission)sender.selectedSegmentIndex;
     [self updateUI];
 }
 
 - (IBAction)dataTypeSegmentedControldidChange:(UISegmentedControl *)sender {
+    
+    [self.editingTextField resignFirstResponder];
+    
     MFPropertyDataType dataType = (MFPropertyDataType)sender.selectedSegmentIndex;
     self.propertyConfiguration.dataType = dataType;
     
