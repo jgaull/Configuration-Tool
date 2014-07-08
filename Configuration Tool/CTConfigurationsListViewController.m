@@ -20,7 +20,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.parseClassName = @"Configuration";
-        self.textKey = @"versionNumber";
+        self.textKey = @"name";
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = YES;
         self.objectsPerPage = 25;
@@ -32,14 +32,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[MFBike sharedInstance] checkForUpdatesWithCallback:^(NSError *error) {
-        if (!error) {
-            NSLog(@"Yay!");
-        }
-        else {
-            NSLog(@"Flailure");
-        }
-    }];
 }
 
 - (void)didReceiveMemoryWarning

@@ -26,9 +26,9 @@
         [sensors addObject:sensorConfig];
     }
     
-    NSString *versionNumber = [object objectForKey:@"versionNumber"];
+    NSString *name = [object objectForKey:@"name"];
     
-    MFBikeConfiguration *configuration = [[MFBikeConfiguration alloc] initWithProperties:properties sensors:sensors versionNumber:versionNumber];
+    MFBikeConfiguration *configuration = [[MFBikeConfiguration alloc] initWithProperties:properties sensors:sensors name:name identifier:object.objectId];
     return configuration;
 }
 

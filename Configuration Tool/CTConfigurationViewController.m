@@ -127,7 +127,7 @@
     
     NSDate *timestamp = [NSDate date];
     
-    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.configuration.properties sensors:self.configuration.sensors versionNumber:@"Snoop Dogg"];
+    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.configuration.properties sensors:self.configuration.sensors name:@"Snoop" identifier:nil];
     [[MFBike sharedInstance] uploadConfiguration:bikeConfig withCallback:^(NSError *error) {
         if (!error) {
             NSLog(@"Transfer Time: %f", [timestamp timeIntervalSinceNow]);
@@ -152,13 +152,10 @@
         [sensors addObject:sensor.toDictionary];
     }
     
-    
-    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.configuration.properties sensors:self.configuration.sensors versionNumber:@"Snoop"];
-    
     PFObject *parseObject = [[PFObject alloc] initWithClassName:@"Configuration"];
-    [parseObject setObject:bikeConfig.versionName forKey:@"versionNumber"];
-    [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.numProperties] forKey:@"numProperties"];
-    [parseObject setObject:[NSNumber numberWithInteger:bikeConfig.numSensors] forKey:@"numSensors"];
+    [parseObject setObject:self.configuration.name forKey:@"name"];
+    [parseObject setObject:[NSNumber numberWithInteger:self.configuration.numProperties] forKey:@"numProperties"];
+    [parseObject setObject:[NSNumber numberWithInteger:self.configuration.numSensors] forKey:@"numSensors"];
     [parseObject setObject:properties forKey:@"properties"];
     [parseObject setObject:sensors forKey:@"sensors"];
     
@@ -188,7 +185,7 @@
         [sensors addObject:sensorData];
     }
     
-    self.configuration = [[MFBikeConfiguration alloc] initWithProperties:properties sensors:sensors versionNumber:self.configuration.versionName];
+    self.configuration = [[MFBikeConfiguration alloc] initWithProperties:properties sensors:sensors name:self.configuration.name identifier:nil];
     
     [self.tableView reloadData];
 }
