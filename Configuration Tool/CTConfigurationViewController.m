@@ -127,10 +127,20 @@
     
     NSDate *timestamp = [NSDate date];
     
-    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.configuration.properties sensors:self.configuration.sensors name:@"Snoop" identifier:nil];
+    MFBikeConfiguration *bikeConfig = [[MFBikeConfiguration alloc] initWithProperties:self.configuration.properties sensors:self.configuration.sensors name:@"Snoop" identifier:self.configuration.identifier];
     [[MFBike sharedInstance] uploadConfiguration:bikeConfig withCallback:^(NSError *error) {
         if (!error) {
             NSLog(@"Transfer Time: %f", [timestamp timeIntervalSinceNow]);
+            
+            [[MFBike sharedInstance] valueForProperty:kModeoControllerConfigurationIdentifier withCallback:^(MFPropertyData *value, NSError *error) {
+                if (!error) {
+                    NSString *identifier = [[NSString alloc] initWithData:value.rawData encoding:NSUTF8StringEncoding];
+                    NSLog(@"Identifier: %@", identifier);
+                }
+                else {
+                    NSLog(@"Error retrieving the configuration identifier.");
+                }
+            }];
         }
         else {
             NSLog(@"failure: %@", error.localizedDescription);
@@ -154,8 +164,6 @@
     
     PFObject *parseObject = [[PFObject alloc] initWithClassName:@"Configuration"];
     [parseObject setObject:self.configuration.name forKey:@"name"];
-    [parseObject setObject:[NSNumber numberWithInteger:self.configuration.numProperties] forKey:@"numProperties"];
-    [parseObject setObject:[NSNumber numberWithInteger:self.configuration.numSensors] forKey:@"numSensors"];
     [parseObject setObject:properties forKey:@"properties"];
     [parseObject setObject:sensors forKey:@"sensors"];
     
